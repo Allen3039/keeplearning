@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document /Users/wk/.vscode/extensions/techer.open-in-browser-2.0.01/out</title>
+  <style>
+    body {
+      height: 100vh;
+      /* background-image: paint(starry-sky); */
+      --star-density: 0.5;
+    }
+
+    body:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      --star-density: 0.5;
+      --star-sky-seed: 1;
+      background-image: paint(starry-sky);
+    }
+  </style>
+</head>
+
+<body>
+  (⊙_⊙)? css houdini https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651228436&idx=1&sn=a92a814cff43ed348d740dad6cd98774&chksm=bd4950908a3ed9868315eab3fa319bf2af4af06a043a59009e51a013f8aacb30937595641b22&scene=21#wechat_redirect
+</body>
+<script>
+  // let blobURL = URL.createObjectURL(new Blob(['(',
+  //   function() {
+  //     class StarrySky {
+  //       paint(ctx, paintSize, properties) {
+  //         ctx.fillRect(0, 0, paintSize.width, paintSize.height);
+  //       }
+  //     }
+  //     registerPaint('starry-sky', StarrySky);
+
+  //   }.toString(),
+
+  //   ')()'], { type: 'application/javascript' })
+  // );
+
+  // CSS.paintWorklet.addModule(blobURL);
+  CSS.paintWorklet.addModule('starry-sky.js');
+</script>
+
+</html>

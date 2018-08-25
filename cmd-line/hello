@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+require("shelljs/global");
+const argv =
+  // .alias("h", "help")
+  require("yargs")
+    .command("morning", "good morning", function(yargs) {
+      echo("Good Morning");
+      var argv = yargs
+        .reset()
+        .options({
+          w: {
+            describe: "what ever u want"
+          }
+        })
+        .help("h").argv;
+
+      echo(`fetch u some ${argv.w}, sir`);
+    })
+    .options({
+      n: {
+        alias: "name",
+        demand: true,
+        default: "allen",
+        describe: "your name",
+        type: "string"
+      },
+      f: {
+        boolean: true
+      }
+    })
+    .usage("Usage:hello [options]")
+    .example("hello -n allen -f true", "set name allen and set flag true")
+    .help("h").argv;
+// const exec =
+
+// process 挂起
+// process.stdin.resume();
+// process.stdin.setEncoding("utf8");
+// process.stdin.on("data", function(data) {
+//   process.stdout.write(data);
+// });
+
+// process.on("SIGINT", function() {
+//   console.log("Got a SIGINT");
+//   process.exit(0);
+// });
+
+console.log("argv is", argv);
+
+// console.log(which("git"));

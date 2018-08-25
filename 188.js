@@ -19,3 +19,13 @@ const a = 1,
 if ((a + b > c && a - b < 3) || a + c > b) {
   console.log("yoo");
 }
+
+if (false);
+{
+  console.log(1);
+}
+
+var a=b=c=d=1;
+a = b
+/Error/11.test("dsdsa")
+(c + d).toString()

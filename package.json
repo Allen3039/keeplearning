@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jscodeshift": "^0.5.1",
     "ramda": "^0.25.0"
   }
 }

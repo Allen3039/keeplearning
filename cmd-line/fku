@@ -1,0 +1,254 @@
+#!/usr/bin/env node
+const util = require("./util/util");
+const j = require("jscodeshift");
+const assert = require("assert");
+require("shelljs/global");
+const path = require("path");
+const fs = require("fs");
+const { readFile, writeFile, getTemplate } = util;
+
+const argv = require("yargs").command("g", "generate", function(yargs) {
+  var argv = yargs
+    .reset()
+    .help("h")
+    .example("fku g menu xx ", "generate a menu in menu.js")
+    .example("fku g model xx", "generate a model")
+    .example("fku g route /a-b/c", "generate a route").argv;
+
+  console.log(argv);
+  const type = argv._[1];
+  const params = argv._.slice(2);
+  // console.log(type);
+
+  switch (type) {
+    case "menu":
+      genMenu(...params);
+      break;
+    case "model":
+      genModel(...params);
+      break;
+    case "route":
+      genRoute(...params);
+      break;
+  }
+  // console.log(process.cwd(), __dirname);
+}).argv;
+
+/**
+ *
+ *
+ * @param {*} type menu router model
+ */
+function checkExist(type) {
+  // const prePath=path.resolve(process.cwd(),"src/common");
+
+  return isExist;
+}
+
+function genMenu(menuName) {
+  const releativePath = "src/common/menu.js";
+
+  const isExist = fs.existsSync(releativePath);
+  assert(isExist, "menu 应该存在");
+
+  const source = readFile(releativePath);
+  const root = j(source);
+
+  root
+    .find(j.VariableDeclarator, {
+      id: {
+        name: "menuData"
+      }
+    })
+    .replaceWith(p => {
+      const { node } = p;
+      const elements = node.init.elements;
+      // {name: '认证审核',
+      // icon: 'dashboard',
+      // path: 'auth-mgr',
+      // authority: 'admin',}
+      elements.push(
+        j.objectExpression([
+          j.property("init", j.literal("name"), j.literal(menuName)),
+          j.property("init", j.literal("icon"), j.literal("dashboard")),
+          j.property("init", j.literal("path"), j.literal(`${menuName}`)),
+          j.property("init", j.literal("authority"), j.literal("admin"))
+        ])
+      );
+      return node;
+    });
+
+  // console.log(
+  //   root
+  //     .find(j.Literal, {
+  //       value: "内容管理"
+  //     })
+  //     // .length
+  //     .replaceWith(p => {
+  //       console.log(p.node.value);
+  //       p.node.value = "fku";
+  //       return p.node;
+  //       // return j.identifier("xx");
+  //     })
+  // );
+  // .replaceWith(p => {
+  //   return j.objectExpression([
+  //     j.property("init", j.identifier("foo"), j.literal("bar"))
+  //   ]);
+  //   // return node;
+  // });
+
+  console
+    .log
+    // root
+    //   .find(j.VariableDeclarator, {
+    //     id: {
+    //       name: "menuData"
+    //     }
+    //   })
+    //   .replaceWith(p => {
+    //     const { node } = p;
+    //     console.log(node);
+    //     node.init.elements.push(
+    //       j.objectExpression([
+    //         j.property("init", j.identifier("foo"), j.literal("bar"))
+    //       ])
+    //     );
+    //     return node;
+    //   })
+    // .insertAfter(j(`11;`).find(j.ExpressionStatement).__paths[0].value)
+    // .replaceWith(p => {
+    //   const { node } = p;
+    //   node.key.name = "xx";
+    //   return node;
+    // })
+    ();
+  // console.log(
+  //   root.find(j.VariableDeclarator, {
+  //     id: {
+  //       name: "menuData"
+  //     }
+  //   })
+
+  //   // root
+  //   //   .find(j.StringLiteral, {
+  //   //     value: "content-mgr"
+  //   //   })
+  //   //   .nodes()
+  //   // .replaceWith(p => {
+  //   //   const { node } = p;
+  //   //   console.log("xx", node);
+  //   //   node.value = "fku";
+  //   //   return node;
+  //   // })
+  //   // .insertAfter(j(`11`).find(j.ExpressionStatement).__paths[0].value)
+
+  //   // .find(j.ObjectExpression)
+  //   // .at(0)
+
+  //   //     .insertAfter(
+  //   //       j(`{
+  //   //   a:1
+  //   // }`).find(j.ObjectExpression).__paths[0].value
+  //   //     )
+  //   // .nodes()
+  //   // .get("init.elements")
+  //   // .find(j.ArrayExpession)
+  // );
+  // .at(-1)
+  // .insertAfter(
+  //   j(`{
+  //   a:1
+  // }`).find(j.ExpressionStatement).__paths[0].value
+  // );
+  // .replaceWith(p => j.identifier("xx"));
+  writeFile(releativePath, root.toSource());
+  console.log("写入menu", menuName);
+}
+
+function genModel(modelName) {
+  const releativePath = "src/models";
+  const isExist = fs.existsSync(releativePath);
+  assert(isExist, "src/models 目录应该存在");
+
+  const payload = {
+    namespace: modelName
+  };
+
+  const template = getTemplate("model.create");
+
+  writeFile(releativePath + `/${modelName}.js`, template(payload));
+  console.log("写入成功");
+}
+
+function __genRoute(ComponentName) {
+  const releativePath = "src/routes";
+  assert(fs.existsSync(releativePath), "routes 目录不存在");
+  if (!fs.existsSync(`${releativePath}/${ComponentName}`)) {
+    fs.mkdirSync(`${releativePath}/${ComponentName}`);
+  }
+
+  const template = getTemplate("router.create");
+  const payload = {
+    ComponentName
+  };
+  writeFile(`${releativePath}/${ComponentName}/index.js`, template(payload));
+  console.log(ComponentName);
+  return true;
+}
+
+function genRoute(routerPath) {
+  const ComponentName = routerPath
+    .split(/[\/|-]/)
+    .filter(name => name.length !== 0)
+    .map(name => {
+      return name[0].toUpperCase() + name.slice(1);
+    })
+    .join("");
+
+  __genRoute(ComponentName);
+  __genMenuPath(routerPath, ComponentName);
+}
+
+function __genMenuPath(routerPath, ComponentName) {
+  const releativePath = "src/common/router.js";
+  assert(fs.existsSync(releativePath), `${releativePath}文件不存在`);
+  const file = readFile(releativePath);
+  const root = j(file);
+  const res = root
+    .find(j.VariableDeclarator, {
+      id: {
+        name: "routerConfig"
+      }
+    })
+    .replaceWith(p => {
+      const { node } = p;
+      node.init.properties.push(
+        j.property(
+          "init",
+          j.literal(routerPath),
+          j.objectExpression([
+            j.property(
+              "init",
+              j.literal("component"),
+              j.callExpression(j.identifier("dynamicWrapper"), [
+                j.literal("app"),
+                j.arrayExpression([]),
+                j.arrowFunctionExpression(
+                  [],
+                  j.callExpression(j.literal("import"), [
+                    j.literal(`../routes/${ComponentName}`)
+                  ])
+                )
+              ])
+            )
+          ])
+        )
+      );
+      return node;
+    });
+
+  writeFile(releativePath, root.toSource());
+
+  console.log(res);
+}
