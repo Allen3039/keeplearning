@@ -51,3 +51,4 @@ issues.trigger("发钱啦", "1个亿呢");
 // tt commit2
 // tt commit3
 // tt commit4
+// master commit
