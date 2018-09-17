@@ -223,6 +223,11 @@ function __genMenuPath(routerPath, ComponentName) {
     })
     .replaceWith(p => {
       const { node } = p;
+      arrayExpression = j.arrayExpression([]);
+      arrayExpression.comments = [];
+      arrayExpression.comments.push(j.block("记得添加自己的model"));
+
+      console.log("arrayExpression", arrayExpression);
       node.init.properties.push(
         j.property(
           "init",
@@ -232,11 +237,11 @@ function __genMenuPath(routerPath, ComponentName) {
               "init",
               j.literal("component"),
               j.callExpression(j.identifier("dynamicWrapper"), [
-                j.literal("app"),
-                j.arrayExpression([]),
+                j.identifier("app"),
+                arrayExpression,
                 j.arrowFunctionExpression(
                   [],
-                  j.callExpression(j.literal("import"), [
+                  j.callExpression(j.identifier("import"), [
                     j.literal(`../routes/${ComponentName}`)
                   ])
                 )
