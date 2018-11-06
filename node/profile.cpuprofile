@@ -1,0 +1,211 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "callFrame": {
+        "functionName": "(root)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [2]
+    },
+    {
+      "id": 2,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "16",
+        "url": "bootstrap_node.js",
+        "lineNumber": 9,
+        "columnNumber": 9
+      },
+      "hitCount": 0,
+      "children": [3]
+    },
+    {
+      "id": 3,
+      "callFrame": {
+        "functionName": "startup",
+        "scriptId": "16",
+        "url": "bootstrap_node.js",
+        "lineNumber": 11,
+        "columnNumber": 18
+      },
+      "hitCount": 0,
+      "children": [4]
+    },
+    {
+      "id": 4,
+      "callFrame": {
+        "functionName": "Module.runMain",
+        "scriptId": "38",
+        "url": "module.js",
+        "lineNumber": 690,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [5]
+    },
+    {
+      "id": 5,
+      "callFrame": {
+        "functionName": "Module._load",
+        "scriptId": "38",
+        "url": "module.js",
+        "lineNumber": 447,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [6]
+    },
+    {
+      "id": 6,
+      "callFrame": {
+        "functionName": "tryModuleLoad",
+        "scriptId": "38",
+        "url": "module.js",
+        "lineNumber": 501,
+        "columnNumber": 22
+      },
+      "hitCount": 0,
+      "children": [7]
+    },
+    {
+      "id": 7,
+      "callFrame": {
+        "functionName": "Module.load",
+        "scriptId": "38",
+        "url": "module.js",
+        "lineNumber": 555,
+        "columnNumber": 32
+      },
+      "hitCount": 0,
+      "children": [8]
+    },
+    {
+      "id": 8,
+      "callFrame": {
+        "functionName": "Module._extensions..js",
+        "scriptId": "38",
+        "url": "module.js",
+        "lineNumber": 660,
+        "columnNumber": 36
+      },
+      "hitCount": 0,
+      "children": [9]
+    },
+    {
+      "id": 9,
+      "callFrame": {
+        "functionName": "Module._compile",
+        "scriptId": "38",
+        "url": "module.js",
+        "lineNumber": 608,
+        "columnNumber": 36
+      },
+      "hitCount": 0,
+      "children": [10]
+    },
+    {
+      "id": 10,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "72",
+        "url": "/Users/wk/project/keepmoving/node/inspect.js",
+        "lineNumber": 0,
+        "columnNumber": 10
+      },
+      "hitCount": 0,
+      "children": [11]
+    },
+    {
+      "id": 11,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "73",
+        "url": "inspector.js",
+        "lineNumber": 46,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [12]
+    },
+    {
+      "id": 12,
+      "callFrame": {
+        "functionName": "dispatch",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [13]
+    },
+    {
+      "id": 13,
+      "callFrame": {
+        "functionName": "(anonymous function).Connection",
+        "scriptId": "73",
+        "url": "inspector.js",
+        "lineNumber": 26,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [14]
+    },
+    {
+      "id": 14,
+      "callFrame": {
+        "functionName": "EventEmitter",
+        "scriptId": "73",
+        "url": "inspector.js",
+        "lineNumber": 29,
+        "columnNumber": 19
+      },
+      "hitCount": 0,
+      "children": [15]
+    },
+    {
+      "id": 15,
+      "callFrame": {
+        "functionName": "session.post",
+        "scriptId": "72",
+        "url": "/Users/wk/project/keepmoving/node/inspect.js",
+        "lineNumber": 5,
+        "columnNumber": 32
+      },
+      "hitCount": 0,
+      "children": [16]
+    },
+    {
+      "id": 16,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "73",
+        "url": "inspector.js",
+        "lineNumber": 46,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [17]
+    },
+    {
+      "id": 17,
+      "callFrame": {
+        "functionName": "dispatch",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0
+    }
+  ],
+  "startTime": 111024474961,
+  "endTime": 111024485589,
+  "samples": [17],
+  "timeDeltas": [9165]
+}
