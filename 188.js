@@ -66,3 +66,4 @@ curry(foo)(1)(2)(3);
 // bbb
 // cc
 // dd
+//eee
