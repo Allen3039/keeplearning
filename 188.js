@@ -63,3 +63,4 @@ let curry = f => arg => (f.length > 1 ? curry(f.bind(null, arg)) : f(arg));
 curry(foo)(1)(2)(3);
 
 // aa
+// bbb
