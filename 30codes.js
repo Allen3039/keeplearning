@@ -338,3 +338,57 @@ function print() {
 
 observe(print);
 person.name = "李四";
+
+// run generator 
+function run(gen){
+  var args=[].slice.call(arguments,1),it;
+  
+  it=gen.apply(this,args);
+
+  return Promise.resolve()
+      .then(function handleNext(value){
+        var next=it.next(value);
+        if()
+      })
+  
+}
+
+
+// 这里通过compose，传入一组函数，将函数通过next参数串联起来，同时可以控制函数调用时prev的值控制compose的执行过程，这个也就是中间件的思路
+const makeAdd=(next)=>{
+  return (prev)=>{
+    
+    return next(prev+1);
+  }
+}
+const makeMulti=(next)=>{
+  return (prev)=>{
+    if(prev>2){
+      return prev;
+    }
+    return next(prev*2);
+  }
+}
+
+const log=(prev)=>{
+  console.log(prev);
+}
+
+
+
+
+const compose=(...fns)=>{
+  if(fns.length==1){
+    return fns[0];
+  }
+
+  return fns.reduce((a,b)=>(...args)=>a(b(...args)));
+}
+
+composeFn=compose(makeAdd,makeMulti)(log)
+
+// 方便对比 这里也给出了常规compose使用demo
+const add1=(val)=>val+1;
+const multi2=(val)=>val*2;
+composeFn1=compose(add1,multi2)
+composeFn1(2)==5

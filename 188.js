@@ -67,3 +67,20 @@ curry(foo)(1)(2)(3);
 // cc
 // dd
 //eee
+
+var a=Promise.resolve(1),b=Promise.resolve(2);
+
+function mapPromise(promiseArr,cb){
+
+  return Promise.all(promiseArr.map(pr=>{
+    return new Promise((res)=>{
+      Promise.resolve(pr).then(cb).then(res)
+    })
+  }))
+}
+
+
+mapPromise([a,b,],(val)=>{
+  return val*2;
+}).then(res=>console.log(res))
+

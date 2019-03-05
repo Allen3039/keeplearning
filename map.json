@@ -1,0 +1,286 @@
+{
+  "1001": {
+    "name": "FIL_RND",
+    "mark": "随机填充"
+  },
+  "1002": {
+    "name": "FIL_HOT",
+    "mark": "热门填充"
+  },
+  "1003": {
+    "name": "EXP_NEW",
+    "mark": " 新物品试探，试探曝光数 o < 200  f < 20 i < 20"
+  },
+  "1004": {
+    "name": "CAT_DMP",
+    "mark": "数据中心的资讯类目偏好"
+  },
+  "1005": {
+    "name": "FIL_OPT",
+    "mark": "运营填充，算强推里面"
+  },
+  "1006": {
+    "name": "LBS_LIVE",
+    "mark": "用户居住地推地域资讯"
+  },
+  "1007": {
+    "name": "DMP_POI",
+    "mark": "数据中心的资讯poi"
+  },
+  "2001": {
+    "name": "HOT_CLK_RATIO",
+    "mark": "物品属性计算类目热度"
+  },
+  "2002": {
+    "name": "SIM_CONT",
+    "mark": "内容相似"
+  },
+  "2003": {
+    "name": "PRP_CAT",
+    "mark": " 类目相似"
+  },
+  "2004": {
+    "name": "PRP_POI",
+    "mark": " 物品 poi相似"
+  },
+  "2005": {
+    "name": "HOT_INVS",
+    "mark": "物品投资24h 增加最多"
+  },
+  "2006": {
+    "name": "HOT_INVS_UP",
+    "mark": "物品1h投资增长最快"
+  },
+  "2007": {
+    "name": "HOT_FAN",
+    "mark": "推荐各一级类目粉丝数top10的公共主页"
+  },
+  "2008": {
+    "name": "HOT_FAN_UP",
+    "mark": "推荐1d内粉丝数增加最多的top50的公共主页"
+  },
+  "2009": {
+    "name": "PRP_OFFC",
+    "mark": "物品 公众号作者id"
+  },
+  "2010": {
+    "name": "PRP_CID",
+    "mark": "动态 圈子id"
+  },
+  "2011": {
+    "name": "PRP_TPC",
+    "mark": " 动态 话题"
+  },
+  "2012": {
+    "name": "HOT_MOMT",
+    "mark": "推荐点赞率TOP200的动态"
+  },
+  "2013": {
+    "name": "HOT_LIKE",
+    "mark": "推荐点赞数最多的"
+  },
+  "3001": {
+    "name": "PRP_EDU_CNTT",
+    "mark": "依据用户工作经历、当前好友关系推荐好友"
+  },
+  "3002": {
+    "name": "PRP_EDU_FRD",
+    "mark": "依据用户工作经历、当前好友关系推荐好友"
+  },
+  "3003": {
+    "name": "PRP_WORK_CNTT",
+    "mark": "依据用户工作经历、当前好友关系推荐好友"
+  },
+  "3004": {
+    "name": "PRP_WORK_FRD",
+    "mark": "依据用户工作经历、当前好友关系推荐好友"
+  },
+  "3005": {
+    "name": "CF_FRD",
+    "mark": "依据用户当前好友关系推荐好友"
+  },
+  "3006": {
+    "name": "PRP_INVI",
+    "mark": "用户推荐人"
+  },
+  "3007": {
+    "name": "PRP_CNTT",
+    "mark": "用户通讯录里面有谁"
+  },
+  "3008": {
+    "name": "PRP_WORK",
+    "mark": "公司经历相同的用户"
+  },
+  "3009": {
+    "name": "PRP_EDU",
+    "mark": "学校经历相同的用户"
+  },
+  "3010": {
+    "name": "DMP_USER",
+    "mark": "数据部的推荐好友"
+  },
+  "3011": {
+    "name": "PRP_HOME_CNTT",
+    "mark": "依据用户家乡、联系人关系推荐好友"
+  },
+  "3101": {
+    "name": "PRO_FRI_READ",
+    "mark": "依据好友看过的文章推荐"
+  },
+  "3102": {
+    "name": "PRO_GROUP_READ",
+    "mark": "依据群组内的人看过的文章推荐"
+  },
+  "3103": {
+    "name": "CF_EDU_WORK",
+    "mark": "通过将用户的学校和公司名称作为poi进行物品召回"
+  },
+  "3104": {
+    "name": "PRP_FRD",
+    "mark": "好友的公共主页发布的内容 -- index 是映射到userId"
+  },
+  "3105": {
+    "name": "PRP_FLW",
+    "mark": "已关注好友的公共主页发布的资讯/动态--index 是映射到userId"
+  },
+  "3106": {
+    "name": "PRP_FLW_PUB",
+    "mark": "已关注公共主页发布的内容"
+  },
+  "3107": {
+    "name": "PRP_FRD_VIEW",
+    "mark": "推荐好友看过（点击）的物品"
+  },
+  "3108": {
+    "name": "PRP_GRP_VIEW",
+    "mark": "同群组内的人点击过的物品"
+  },
+  "3109": {
+    "name": "PRP_REG_CIR",
+    "mark": "通讯录已经注册过用户的圈子"
+  },
+  "3110": {
+    "name": "PRP_INT",
+    "mark": "推荐亲密度高的用户发布的动态"
+  },
+  "3111": {
+    "name": "PRP_INT_LIKE",
+    "mark": "推荐亲密度>阈值且已关注的用户点赞的"
+  },
+  "3112": {
+    "name": "PRP_INT_CMNT",
+    "mark": "推荐亲密度>阈值的用户评论的"
+  },
+  "3201": {
+    "name": "PRP_FRD_FLW",
+    "mark": "推荐好友关注的公共主页"
+  },
+  "3202": {
+    "name": "PRP_GRP_FLW",
+    "mark": "推荐群组内的人关注的公共主页"
+  },
+  "3301": {
+    "name": "PRP_WORK_PUB",
+    "mark": "推荐相同公司用户发布的动态"
+  },
+  "3302": {
+    "name": "PRP_EDU_PUB",
+    "mark": "推荐相同学校用户发布的动态"
+  },
+  "3303": {
+    "name": "PRP_HOME_PUB",
+    "mark": "推荐相同家乡用户发布的动态"
+  },
+  "3304": {
+    "name": "HOT_LIVE",
+    "mark": "推荐相同现居住地用户发布的动态"
+  },
+  "3305": {
+    "name": "CF_FRD_PUB",
+    "mark": "基于高重叠度的好友列表推荐用户发布的动态"
+  },
+  "3306": {
+    "name": "HOT_WORK",
+    "mark": "推荐相同公司用户发布的热门动态"
+  },
+  "3307": {
+    "name": "HOT_EDU",
+    "mark": "推荐相同学校用户发布的热门动态"
+  },
+  "3308": {
+    "name": "PRP_OLC",
+    "mark": "基于重叠圈子的动态推荐 A_***_B （暂时去掉了）"
+  },
+  "3309": {
+    "name": "HOT_AOI",
+    "mark": "推荐具有相同AOI圈子的动态"
+  },
+  "3310": {
+    "name": "PRP_INV",
+    "mark": "基于邀请人的圈子推荐动态"
+  },
+  "3311": {
+    "name": "HOT_OCP",
+    "mark": "推荐具有相同行业圈子的动态"
+  },
+  "3312": {
+    "name": "HOT_AOI_HOME",
+    "mark": "住宅AOI"
+  },
+  "3313": {
+    "name": "HOT_TOPIC_PUB",
+    "mark": "最近发布的话题推荐动态"
+  },
+  "3314": {
+    "name": "HOT_TOPIC_CLK",
+    "mark": "最近点击的话题推荐动态"
+  },
+  "5001": {
+    "name": "CAT_BASE",
+    "mark": "场景 基于用户感兴趣的类目推荐物品"
+  },
+  "5002": {
+    "name": "CAT_MOMT",
+    "mark": "动态类目偏好"
+  },
+  "5101": {
+    "name": "POI_BASE",
+    "mark": "用户模型中的poi偏好"
+  },
+  "5201": {
+    "name": "CF_CLK",
+    "mark": "基于点击的关联物品"
+  },
+  "5202": {
+    "name": "CF_MOMT",
+    "mark": "动态的itemCF"
+  },
+  "5203": {
+    "name": "CF_USER",
+    "mark": "userCF"
+  },
+  "9001": {
+    "name": "OPT_FIX",
+    "mark": "运营按位置x"
+  },
+  "9002": {
+    "name": "OPT_HOT",
+    "mark": "运营挑选热门内容"
+  },
+  "9003": {
+    "name": "OPT_TOP",
+    "mark": "运营前排 可能被 fix 干掉"
+  },
+  "9004": {
+    "name": "OPT_RNG",
+    "mark": " 运营标记给动态加的白板置顶动态"
+  },
+  "10086010": {
+    "name": "UNKNOWN",
+    "mark": " "
+  },
+  "10086011": {
+    "name": "MOK",
+    "mark": " "
+  }
+}

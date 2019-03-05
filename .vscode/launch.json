@@ -7,6 +7,12 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "ramdatest.js",
+      "program": "${workspaceFolder}/ramdatest.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "puppter",
       "program": "${workspaceFolder}/puppterDemo/index.js"
     },
