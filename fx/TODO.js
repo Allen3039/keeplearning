@@ -25,3 +25,20 @@ dom 引用: dom 元素被删除时，内存中的引用未被正确清空
 4 计算机通识 部分 https://yuchengkai.cn/docs/cs/
 
 5 diff
+
+6 react 虚拟dom 
+
+7 webpack 优化插件 https://segmentfault.com/a/1190000016816813
+
+8 replacestate push state
+
+9 margin重叠?
+
+10 js 数字表示
+
+11 weakmap 
+
+12 node 值引用验证
+
+13 preact 性能diff https://juejin.im/post/5a0191f25188254de1699b0b#heading-12
+

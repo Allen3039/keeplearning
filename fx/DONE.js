@@ -7,7 +7,7 @@ border-box (IE 盒模型) 包含内容 padding border部分
 2. BFC,是一个独立的渲染区域，让处于 BFC 内部的元素与外部的元素相互隔离，使内外元素的定位不会相互影响。
 
 触发条件:
-1 display:inline-block/flex
+1 display:inline-block/flex 里的子元素
 2 float
 3 overflow!=visible
 4 position:absolute/fixed
@@ -62,6 +62,21 @@ function test(){
 
 2 闭包
 父函数被销毁的情况下，子函数任然保持着对父函数中变量的引用。
+单例用法其一
+class Storage {
+  static getInstance=(function() {
+    var instance;
+    return function(){
+      if (!instance) {
+        instance = new Storage();
+      }
+      return instance;
+    }
+  })()
+  setItem = (key, value) => localStorage.setItem(key, value)
+  getItem = key => localStorage.getItem(key)
+}
+
 
 
 3 对象
@@ -83,3 +98,105 @@ function test(){
 先通过重定义对象的属性get set 构建一个Dep 实例收集watcher。
 然后调用Wathcer对象构造函数=>调用对象getter函数=>把当前watcher实例加入到指定属性的依赖中
 最后调用setter的时候就会自动触发,dep里面的watchers了
+
+7 prefetch 预取（非当前页面） preload (当前页面) 
+
+8 1px 
+transform:scaleY(.5)
+background:linear-gradient(0,#fff,000)
+svg 
+
+
+9 
+function flap(arr){
+  return arr.reduce((pre,cur)=>{
+    if(Array.isArray(cur)){
+      return [...pre,...flap(cur)];
+    }
+    return [...pre,cur];
+  },[])
+}
+
+// css-modules OR css in js 分析 http://hkongm.github.io/2018/07/25/ReactStyleTypes/
+
+// 有料
+// http headers 
+// http 缓存原理 https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+// 项目综述 难点
+// redux react provider 
+// webpack优化
+// https://30secondsofinterviews.org/  mark:Does JavaScript pass by value or by reference?
+// 移动端 性能优化 ?
+
+
+2.2.2.2
+
+1.1.1.1->10.10.10.10
+
+function sort(arr,num){
+  
+  var mid=num.length/2;
+  while (mid>=0) {
+    if(arr[mid]==num){
+      return mid;
+    }
+    if(arr[mid]<num){
+      mid= Math.floor(mid/2);
+    }else{
+      mid=Math.floor((mid+arr.length)/2);
+    }
+  }
+  return false;
+}
+
+
+
+
+
+function find(arr,num,index){
+
+  if(!arr.length){
+  return false;
+  }
+  if(arr.length==1){
+  return num==arr[0]
+  }
+  var mid=index
+  if(arr[mid]==num){
+  return mid
+  }
+  if(arr[mid]<num){
+  return find(arr,num,Math.floor((mid+arr.length)/2))
+  }
+  if(arr[mid]>num){
+  return find(arr,num,Math.floor((mid-1)/2))
+  }
+  }
+  
+  function ff(arr,num){
+    return find(arr,num,Math.floor(arr.length/2))
+  
+  }
+
+
+  function binaryS(arr,num){
+    var left=0,right=arr.length-1,mid;
+    while(left<=right){
+      mid=Math.floor(left+right);
+      if(arr[mid]==num){return mid}
+      if(arr[mid]>num) {
+        right=mid-1;
+      }
+      if(arr[mid<num]){
+        left=mid+1;
+      }
+    }
+    return false
+  }
+
+
+2.2.2.2
+
+1.1.1.1 -> 10.10.10.10
+
+100.10.10.10 -> 100.20.10.10

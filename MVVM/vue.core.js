@@ -1,4 +1,4 @@
-var obj = ["a"];
+var obj = ['a'];
 
 function setLogger(target, property) {
   console.table(['set', JSON.stringify(target), property]);
@@ -14,9 +14,9 @@ function watch(obj, setLogger, getLogger) {
       getLogger(target, property);
       return Reflect.get(target, property, receiver);
     },
-    set(target, property,value, receiver) {
-      setLogger(target, property,value);
-      return Reflect.set(target, property,value, receiver);
+    set(target, property, value, receiver) {
+      setLogger(target, property, value);
+      return Reflect.set(target, property, value, receiver);
     },
   };
   return new Proxy(obj, handler);
@@ -24,5 +24,8 @@ function watch(obj, setLogger, getLogger) {
 
 obj = watch(obj, setLogger, getLogger);
 
-obj[1] = "b";
+obj[1] = 'b';
 
+function clamp(n, min, max) {
+  return Math.min(max, Math.max(n, min));
+}

@@ -1,0 +1,26 @@
+{
+  "name": "node",
+  "version": "0.0.2",
+  "description": "",
+  "main": "cluster.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon -w es6.js --exec  npm start",
+    "build": "babel es6.js  -d dist",
+    "start": "npm run build && node dist/es6.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.18.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4"
+  }
+}
