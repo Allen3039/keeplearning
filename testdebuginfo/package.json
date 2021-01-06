@@ -1,0 +1,17 @@
+{
+  "name": "testdebuginfo",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chrome-remote-interface": "^0.28.2",
+    "puppeteer": "^5.5.0",
+    "websocket": "^1.0.33"
+  }
+}

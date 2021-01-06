@@ -14,5 +14,8 @@
     "jscodeshift": "^0.5.1",
     "ramda": "^0.25.0",
     "react": "^16.5.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
   }
 }
