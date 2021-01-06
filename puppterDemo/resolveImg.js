@@ -1,7 +1,9 @@
-var fs = require("fs");
-var tesseract = require("node-tesseract");
-var gm = require("gm");
-var path = require("path");
+var fs = require('fs');
+// var tesseract = require('node-tesseract');
+// var gm = require('gm');
+var path = require('path');
+const querystring = require('querystring');
+var http = require('http');
 
 // processImg("captcha.png", "captcha_1.jpg")
 //   .then(recognizer)
@@ -11,16 +13,9 @@ var path = require("path");
 //   .catch(err => {
 //     console.error(`识别失败:${err}`);
 //   });
-async function test() {
-  const res = await resloveImg("captcha.png");
-  console.log(res);
-}
-
-test();
-
 async function resloveImg(imgPath) {
   return new Promise((res, rej) => {
-    processImg(imgPath, path.resolve(__dirname, "captcha_xx.jpg"))
+    processImg(imgPath, path.resolve(__dirname, 'captcha_xx.jpg'))
       .then(recognizer)
       .then(text => {
         res(text);
@@ -62,9 +57,52 @@ function recognizer(imgPath, options) {
   return new Promise((resolve, reject) => {
     tesseract.process(imgPath, options, (err, text) => {
       if (err) return reject(err);
-      resolve(text.replace(/[\r\n\s]/gm, ""));
+      resolve(text.replace(/[\r\n\s]/gm, ''));
     });
   });
 }
 
-module.exports = resloveImg;
+function resolveImgWithBase64(base64Str) {
+  return new Promise((pres, prej) => {
+    const postData = querystring.stringify({
+      picBase64: base64Str,
+    });
+
+    const options = {
+      hostname: '10.240.193.174',
+      port: 8080,
+      path: '/baidu/verificationCode',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(postData),
+      },
+    };
+    let ret = '';
+
+    const req = http.request(options, res => {
+      res.setEncoding('utf8');
+      res.on('data', chunk => {
+        ret += chunk.toString();
+      });
+
+      res.on('end', () => {
+        pres(ret);
+      });
+    });
+
+    req.on('error', e => {
+      console.error(`请求遇到问题: ${e.message}`);
+      prej(e.message);
+    });
+
+    // 写入数据到请求主体
+    req.write(postData);
+    req.end();
+  });
+}
+
+module.exports = {
+  resloveImg,
+  resolveImgWithBase64,
+};

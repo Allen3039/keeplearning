@@ -222,6 +222,11 @@ const deepFlatten = arr => {
 
 deepFlatten([1, [2], [[3], 4], 5]);
 
+const flattern=arr=>arr.reduce((prev,cur)=>(
+  prev.concat(Array.isArray(cur)?flattern(cur):cur)
+),[]);
+flattern([1, [2], [[3], 4], 5]);
+
 // findLast bookmark
 
 // groupBy

@@ -17,7 +17,7 @@ a = b / hi / g.exec(c).map(d);
 a = b / hi / g.exec(c).map(d);
 // No ASI:
 
-var foo = "bar"[("red", "green")].foreach(function(c) {
+var foo = 'bar'[('red', 'green')].foreach(function(c) {
   console.log(c);
 });
 // 没有分号插入。 相反，第二行开头被解释为字符串 "bar" 的下标索引。 逗号分隔符也是符号语法操作的(执行了逗号的左侧和右侧，并返回逗号的右侧)
