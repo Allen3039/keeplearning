@@ -16,6 +16,8 @@ export default class MyVue {
       // 在showLover为false的case 下，不响应lover字段的变更
       if (this.data.showLover) {
         document.querySelector(el).innerHTML = this.data.lover;
+      }else{
+        document.querySelector(el).innerHTML = 'I dont know';
       }
     };
     new Watcher(update);

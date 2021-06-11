@@ -20,8 +20,9 @@ function defineReactive(data, key) {
   let val = data[key];
   Object.defineProperty(data, key, {
     get() {
+        console.log("访问" + key);
       if (Dep.target) {
-        dep.addSub(Dep.target);
+        dep.depend(Dep.target);
       }
       return val;
     },
