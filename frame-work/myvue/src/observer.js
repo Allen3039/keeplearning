@@ -17,13 +17,15 @@ export default class Observer {
 
 function defineReactive(data, key) {
   const dep = new Dep();
+  dep.key = key;
   let val = data[key];
   Object.defineProperty(data, key, {
     get() {
         console.log("访问" + key);
       if (Dep.target) {
         dep.depend(Dep.target);
-      }
+    }
+    console.log("get -> dep", dep);
       return val;
     },
     set(newVal) {

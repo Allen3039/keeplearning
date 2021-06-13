@@ -7,8 +7,10 @@ export default class Dep {
   subs = [];
   id = uid++;
 
-  depend(sub) {
-    sub.addDep(this);
+  depend() {
+    if (Dep.target) {
+      Dep.target.addDep(this);
+    }
   }
 
   addSub(sub) {
@@ -25,4 +27,16 @@ export default class Dep {
   notify() {
     this.subs.forEach((sub) => sub.update());
   }
+}
+
+const targetStack = [];
+
+export function pushTarget(target) {
+  targetStack.push(target);
+  Dep.target = target;
+}
+
+export function popTarget() {
+  targetStack.pop();
+  Dep.target = targetStack[targetStack.length - 1];
 }
