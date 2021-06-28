@@ -37,6 +37,8 @@ export default class MyVue {
           //   lover: this.lover,
           aunt: this.aunt,
           doubleAge: this.doubleAge,
+          arr: this.arr,
+          //   arr0dota: this.arr[0].a,
         });
       }else{
         document.querySelector(el).innerHTML = 'I dont know';

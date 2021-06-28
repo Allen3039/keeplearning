@@ -6,6 +6,7 @@ window.vm = new MyVue({
     showLover: true,
     lover: "cyy",
     age: 18,
+    arr: [{ a: "11" }, 2, 3, [[{ v: 444 }]]],
   },
   computed: {
     doubleAge: {
