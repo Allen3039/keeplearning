@@ -11,7 +11,7 @@
   "dependencies": {
     "dumper": "^1.0.12",
     "dumper.js": "^1.1.1",
-    "jscodeshift": "^0.5.1",
+    "jscodeshift": "^0.14.0",
     "ramda": "^0.25.0",
     "react": "^16.5.1"
   }
